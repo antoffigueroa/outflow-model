@@ -1,4 +1,5 @@
+import numpy as np
+
 class Outflow:
-    def __init__(self, V_r, theta_max):
-        self.vr = V_r
-        self.theta = theta_max
+    def __init__(self, D):
+        self.d = np.array([0, 0, 0])
