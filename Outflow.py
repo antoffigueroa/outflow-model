@@ -29,6 +29,9 @@ class Outflow:
     def change_theta(self, theta):
         self.theta = theta
 
+    def change_V_max(self, V_max):
+        self.V_max = V_max
+
     def calculate_D(self):
         return np.array([0, 0, 1])
 
