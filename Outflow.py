@@ -27,3 +27,21 @@ class Outflow:
         D = self.calculate_D()
         M = np.dot(np.transpose(D), D) - np.cos(self.theta)**2*np.identity(3)
         return M
+
+    def find_intersection(self, ray):
+        U = ray.U
+        P = ray.P
+        M = self.calculate_M()
+        c_0 = np.dot(np.dot(np.transpose(P), M), P)
+        c_1 = np.dot(np.dot(np.transpose(U), M), P)
+        c_2 = np.dot(np.dot(np.transpose(U), M), U)
+        delta = c_1**2 - c_2 * c_0
+        if delta < 0:
+            print "No intersection points"
+            return
+        else if delta == 0:
+            return -c_1/c_2
+        else:
+            t_1 = (-c_1 + np.sqrt(c_1**2 - c_2*c_0))/c_2
+            t_2 = (-c_1 - np.sqrt(c_1**2 - c_2*c_0))/c_2
+            return (t_1, t_2)
