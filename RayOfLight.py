@@ -11,6 +11,9 @@ class RayOfLight:
         else:
             self.U = direction
 
+    def change_P(self, new_P):
+        self.P = new_P
+
     def exact_point(self, t):
         x_t = self.P + t * self.U
         return x_t
