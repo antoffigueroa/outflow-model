@@ -45,3 +45,9 @@ class Outflow:
             t_1 = (-c_1 + np.sqrt(c_1**2 - c_2*c_0))/c_2
             t_2 = (-c_1 - np.sqrt(c_1**2 - c_2*c_0))/c_2
             return (t_1, t_2)
+
+    def intersection_point(self, ray):
+        (t_1, t_2) = self.find_intersection_t(ray)
+        x_1 = ray.exact_point(t_1)
+        x_2 = ray.exact_point(t_2)
+        return (x_1, x_2)
