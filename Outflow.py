@@ -23,4 +23,7 @@ class Outflow:
     def calculate_D(self):
         return np.array([0, 0, 1])
 
-    
+    def calculate_M(self):
+        D = self.calculate_D()
+        M = np.dot(np.transpose(D), D) - np.cos(self.theta)**2*np.identity(3)
+        return M
