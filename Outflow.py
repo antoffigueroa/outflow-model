@@ -19,3 +19,8 @@ class Outflow:
             self.V_max = 100
         else:
             self.V_max = V_max
+
+    def calculate_D(self):
+        return np.array([0, 0, 1])
+
+    
