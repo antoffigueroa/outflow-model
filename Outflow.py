@@ -26,6 +26,9 @@ class Outflow:
     def change_pa(self, p_a):
         self.pa = p_a
 
+    def change_theta(self, theta):
+        self.theta = theta
+
     def calculate_D(self):
         return np.array([0, 0, 1])
 
