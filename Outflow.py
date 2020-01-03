@@ -20,17 +20,17 @@ class Outflow:
         else:
             self.V_max = V_max
 
-    def change_i(self, inclination):
-        self.i = inclination
+    def change_i(self, new_i):
+        self.i = new_i
 
-    def change_pa(self, p_a):
-        self.pa = p_a
+    def change_pa(self, new_pa):
+        self.pa = new_pa
 
-    def change_theta(self, theta):
-        self.theta = theta
+    def change_theta(self, new_theta):
+        self.theta = new_theta
 
-    def change_V_max(self, V_max):
-        self.V_max = V_max
+    def change_V_max(self, new_V_max):
+        self.V_max = new_V_max
 
     def calculate_D(self):
         return np.array([0, 0, 1])
