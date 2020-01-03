@@ -59,7 +59,13 @@ class Outflow:
             return (t_1, t_2)
 
     def intersection_point(self, ray):
-        (t_1, t_2) = self.find_intersection_t(ray)
-        x_1 = ray.exact_point(t_1)
-        x_2 = ray.exact_point(t_2)
-        return (x_1, x_2)
+        t = self.find_intersection_t(ray)
+        if len(t)==2:
+            x_1 = ray.exact_point(t[0])
+            x_2 = ray.exact_point(t[1])
+            return (x_1, x_2)
+        if len(t)==1:
+            x = ray.exact_point(t[0])
+            return (x,)
+        if len(t)==0:
+            return ()
