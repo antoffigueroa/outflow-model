@@ -50,9 +50,9 @@ class Outflow:
         delta = c_1**2 - c_2 * c_0
         if delta < 0:
             print "No intersection points"
-            return
+            return ()
         elif delta == 0:
-            return -c_1/c_2
+            return (-c_1/c_2,)
         else:
             t_1 = (-c_1 + np.sqrt(c_1**2 - c_2*c_0))/c_2
             t_2 = (-c_1 - np.sqrt(c_1**2 - c_2*c_0))/c_2
