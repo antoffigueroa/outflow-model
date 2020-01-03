@@ -12,9 +12,9 @@ class Outflow:
         else:
             self.pa = p_a
         if theta == None:
-            self.theta = np.deg2grad(60)
+            self.theta = np.deg2rad(60)
         else:
-            self.theta = np.deg2grad(theta)
+            self.theta = np.deg2rad(theta)
         if V_max == None:
             self.V_max = 100
         else:
@@ -28,7 +28,7 @@ class Outflow:
         M = np.dot(np.transpose(D), D) - np.cos(self.theta)**2*np.identity(3)
         return M
 
-    def find_intersection(self, ray):
+    def find_intersection_t(self, ray):
         U = ray.U
         P = ray.P
         M = self.calculate_M()
@@ -39,7 +39,7 @@ class Outflow:
         if delta < 0:
             print "No intersection points"
             return
-        else if delta == 0:
+        elif delta == 0:
             return -c_1/c_2
         else:
             t_1 = (-c_1 + np.sqrt(c_1**2 - c_2*c_0))/c_2
