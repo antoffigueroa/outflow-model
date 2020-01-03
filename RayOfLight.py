@@ -14,6 +14,9 @@ class RayOfLight:
     def change_P(self, new_P):
         self.P = new_P
 
+    def change_U(self, new_U):
+        self.U = new_U
+
     def exact_point(self, t):
         x_t = self.P + t * self.U
         return x_t
