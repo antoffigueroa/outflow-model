@@ -10,3 +10,7 @@ class RayOfLight:
             self.U = np.array([0, 0, 1])
         else:
             self.U = direction
+
+    def exact_point(self, t):
+        x_t = self.P + t * self.U
+        return x_t
