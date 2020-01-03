@@ -20,6 +20,9 @@ class Outflow:
         else:
             self.V_max = V_max
 
+    def change_i(self, inclination):
+        self.i = inclination
+
     def calculate_D(self):
         return np.array([0, 0, 1])
 
