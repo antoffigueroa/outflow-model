@@ -33,7 +33,7 @@ class Outflow:
         self.V_max = new_V_max
 
     def calculate_D(self):
-        return np.array([0, 1, 0])
+        return np.array([[0, 1, 0]])
 
     def calculate_M(self):
         D = self.calculate_D()
@@ -44,9 +44,9 @@ class Outflow:
         U = ray.U
         P = ray.P
         M = self.calculate_M()
-        c_0 = np.dot(np.dot(np.transpose(P), M), P)
-        c_1 = np.dot(np.dot(np.transpose(U), M), P)
-        c_2 = np.dot(np.dot(np.transpose(U), M), U)
+        c_0 = np.dot(np.dot(P, M), np.transpose(P))
+        c_1 = np.dot(np.dot(U, M), np.transpose(P))
+        c_2 = np.dot(np.dot(U, M), np.transpose(U))
         delta = c_1**2 - c_2 * c_0
         if delta < 0:
             print "No intersection points"
@@ -54,8 +54,8 @@ class Outflow:
         elif delta == 0:
             return (-c_1/c_2,)
         else:
-            t_1 = (-c_1 + np.sqrt(c_1**2 - c_2*c_0))/c_2
-            t_2 = (-c_1 - np.sqrt(c_1**2 - c_2*c_0))/c_2
+            t_1 = (-c_1 + np.sqrt(delta))/c_2
+            t_2 = (-c_1 - np.sqrt(delta))/c_2
             return (t_1, t_2)
 
     def intersection_point(self, ray):
