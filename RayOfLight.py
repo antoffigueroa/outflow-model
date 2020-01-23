@@ -19,5 +19,5 @@ class RayOfLight:
         self.U.change_coord(coordinates=new_U)
 
     def exact_point(self, t):
-        x_t = self.P + t * self.U
+        x_t = self.P.coord + t * self.U.coord
         return x_t
