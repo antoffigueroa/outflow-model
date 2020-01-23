@@ -34,16 +34,16 @@ class Outflow:
         self.V_max = new_V_max
 
     def calculate_D(self):
-        return np.array([[0, 0, 1]])
+        return Point(coordinates=np.array([[0, 0, 1]]))
 
     def calculate_M(self):
-        D = self.calculate_D()
+        D = self.calculate_D().coord
         M = np.dot(np.transpose(D), D) - np.cos(self.theta)**2*np.identity(3)
         return M
 
     def find_intersection_t(self, ray):
-        U = ray.U
-        P = ray.P
+        U = ray.U.coord
+        P = ray.P.coord
         M = self.calculate_M()
         c_0 = np.dot(np.dot(P, M), np.transpose(P))
         c_1 = np.dot(np.dot(U, M), np.transpose(P))
