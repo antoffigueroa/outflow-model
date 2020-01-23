@@ -4,19 +4,19 @@ from RayOfLight import *
 
 class Outflow:
     def __init__(self, inclination=None, p_a=None, theta=None, V_max=None):
-        if inclination == None:
+        if inclination is None:
             self.i = 0
         else:
             self.i = inclination
-        if p_a == None:
+        if p_a is None:
             self.pa = 0
         else:
             self.pa = p_a
-        if theta == None:
+        if theta is None:
             self.theta = np.deg2rad(60)
         else:
             self.theta = np.deg2rad(theta)
-        if V_max == None:
+        if V_max is None:
             self.V_max = 100
         else:
             self.V_max = V_max

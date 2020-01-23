@@ -3,11 +3,11 @@ from Point import *
 
 class RayOfLight:
     def __init__(self, coordinate=None, direction=None, sys=None):
-        if coordinates == None:
+        if coordinate is None:
             self.P = Point()
         else:
             self.P = Point(coordinates=coordinate, system=sys)
-        if direction == None:
+        if direction is None:
             self.U = Point(coordinates=np.array([[0, 0, 1]]), system=sys)
         else:
             self.U = Point(coordinates=coordinate, system=sys)
