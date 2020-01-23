@@ -13,3 +13,6 @@ class Point:
 
     def change_coord(self, new_coordinates):
         self.coord = new_coordinates
+
+    def change_system(self, new_system):
+        self.sys = new_system
