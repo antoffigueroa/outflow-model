@@ -46,8 +46,8 @@ class Point:
         self.change_system('spherical')
 
     def sphe2cyl(self):
-        if self.sys != 'cylindrical':
-            print 'ERROR: coordinates are not cylindrical'
+        if self.sys != 'spherical':
+            print 'ERROR: coordinates are not spherical'
             return
         else:
             r = self.coord[0][0]
@@ -58,3 +58,18 @@ class Point:
         new_coord = np.array([[rho, phi, z]])
         self.change_coord(new_coord)
         self.change_system('cylindrical')
+
+    def cyl2cart(self):
+        if self.sys != 'cylindrical':
+            print 'ERROR: coordinates are not cylindrical'
+            return
+        else:
+            rho = self.coord[0][0]
+            phi = self.coord[0][1]
+            z = self.coord[0][2]
+            x = rho*np.cos(phi)
+            y = rho*np.sin(phi)
+        new_coord = np.array([[x, y, z]])
+        self.change_coord(new_coord)
+        self.change_system('cartesian')
+        
