@@ -16,7 +16,7 @@ class Point:
 
     def change_system(self, new_system):
         self.sys = new_system
-    
+
     def cart2sphe(self):
         if self.sys != 'cartesian':
             print 'ERROR: coordinates are not cartesian'
@@ -41,3 +41,8 @@ class Point:
                 phi = np.pi/2*np.sign(y)
             else:
                 phi = np.pi + np.arctan(y/x)
+        new_coord = np.array([[r, theta, phi]])
+        self.change_coord(new_coord)
+        self.change_system('spherical')
+
+    
