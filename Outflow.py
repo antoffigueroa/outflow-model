@@ -1,4 +1,5 @@
 import numpy as np
+from Point import *
 from RayOfLight import *
 
 class Outflow:
