@@ -10,3 +10,6 @@ class Point:
             self.sys = 'cartesian'
         else:
             self.sys = system
+
+    def change_coord(self, new_coordinates):
+        self.coord = new_coordinates
