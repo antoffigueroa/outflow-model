@@ -82,3 +82,14 @@ class Point:
             y = self.coord[0][1]
             z = self.coord[0][2]
             rho = np.sqrt(x**2 + y**2)
+            if x == 0 and y == 0:
+                phi = 0
+            elif x >= 0:
+                phi = np.arcsin(y/rho)
+            else:
+                phi = -np.arcsin(y/rho) + np.pi
+        new_coord = np.array([[rho, phi, z]])
+        self.change_coord(new_coord)
+        self.change_system('cylindical')
+
+    
