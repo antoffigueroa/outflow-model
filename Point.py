@@ -92,4 +92,16 @@ class Point:
         self.change_coord(new_coord)
         self.change_system('cylindical')
 
-    
+    def cyl2sphe(self):
+        if self.sys != 'cylindrycal':
+            print 'ERROR: coordinates are not cylindrical'
+            return
+        else:
+            rho = self.coord[0][0]
+            phi = self.coord[0][1]
+            z = self.coord[0][2]
+            r = np.sqrt(rho**2 + z**2)
+            theta = np.arctan(rho/z)
+        new_coord = np.array([[r, theta, phi]])
+        self.change_coord(new_coord)
+        self.change_system('spherical')
