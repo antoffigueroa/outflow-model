@@ -33,7 +33,7 @@ class Outflow:
         self.V_max = new_V_max
 
     def calculate_D(self):
-        return np.array([[0, 1, 0]])
+        return np.array([[0, 0, 1]])
 
     def calculate_M(self):
         D = self.calculate_D()
