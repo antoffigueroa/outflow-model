@@ -72,4 +72,13 @@ class Point:
         new_coord = np.array([[x, y, z]])
         self.change_coord(new_coord)
         self.change_system('cartesian')
-        
+
+    def cart2cyl(self):
+        if self.sys != 'cartesian':
+            print 'ERROR: coordinates are not cartesian'
+            return
+        else:
+            x = self.coord[0][0]
+            y = self.coord[0][1]
+            z = self.coord[0][2]
+            rho = np.sqrt(x**2 + y**2)
