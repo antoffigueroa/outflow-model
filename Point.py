@@ -105,3 +105,18 @@ class Point:
         new_coord = np.array([[r, theta, phi]])
         self.change_coord(new_coord)
         self.change_system('spherical')
+
+    def sphe2cart(self):
+        if self.sys != 'spherical':
+            print 'ERROR: coordinates are not spherical'
+            return
+        else:
+            r = self.coord[0][0]
+            theta = self.coord[0][1]
+            phi = self.coord[0][2]
+            x = r*np.sin(theta)*np.cos(phi)
+            y = r*np.sin(theta)*np.sin(phi)
+            z = r*np.cos(theta)
+        new_coord = np.array([[x, y, z]])
+        self.change_coord(new_coord)
+        self.change_system('cartesian')
